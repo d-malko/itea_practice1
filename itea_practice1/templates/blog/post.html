@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block content %}
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">{{ post.title|title }}</h1>
+      <p class="lead">{{ post.description }}</p>
+    </div>
+  </div>
+
+  {% if product.image %}
+    <a href="{{ product.get_absolute_url }}"><img class="card-img" height="300" src="{{ post.image.url }}" alt="Vans"></a>
+  {% else %}
+    <a href="{{ product.get_absolute_url }}"><img class="card-img" height="300" src="{% static 'img/no_img.png' %}" alt="Vans"></a>
+  {% endif %}
+
+  {% include 'blog/comment_list.html' %}
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% load static %}
+
+
+<div class="container">
+    <h2>Всего комментариев: {{ comment_list | length }}</h2>
+    <div class="row">
+        {% for comment in comment_list %}
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ comment.text | title }}</h4>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

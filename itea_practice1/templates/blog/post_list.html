@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<div class="container">
+    <h2>Всего постов: {{ post_list | length }}</h2>
+    <div class="row">
+        {% for post in post_list %}
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="{{ post.get_absolute_url }}"> {{ post.title | title }}</a></h4>
+                        {% if post.image %}
+                            <a href="{{ post.get_absolute_url }}"><img class="card-img" height="300"
+                                                                       src="{{ post.image.url }}" alt="Vans"></a>
+                        {% else %}
+                            <a href="{{ post.get_absolute_url }}"><img class="card-img" height="300"
+                                                                       src="{% static 'img/no_img.png' %}"
+                                                                       alt="Vans"></a>
+                        {% endif %}
+                        <p class="card-text">Краткое описание: {{ post.short_description }}</p>
+                        <p class="card-text">Количество комментариев {{ post.count_comment }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

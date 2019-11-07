@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Добро пожаловать!</h1>
+      <p class="lead">Мой блог.</p>
+    </div>
+  </div>
+
+{#  {% include 'blog/components/post_list.html' %}#}
+  <a href="{% url 'blog:post-list' %}" class="btn btn-danger mt-3">Показать все</a>
+{% endblock content %}
